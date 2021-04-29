@@ -1,0 +1,16 @@
+//2) Refaça o exercício anterior utilizando o comando do .. while
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int d=10;
+	do{
+        	printf("%d..",d);
+        	d--;
+    	}while(d>=0);
+
+	printf("FIM!");
+ 	system("pause");   
+	return 0;
+}

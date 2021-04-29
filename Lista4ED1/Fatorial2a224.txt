@@ -1,0 +1,28 @@
+//(22)fatorial de 10! a 15!
+#include<stdio.h>
+#include<stdlib.h>
+int main(){ 
+int fat = 1;
+int fat10,fat15=fat;
+int i = 10;
+int fat = 1;
+	int i = 1;
+    //calculando 
+	while (i <= 10)
+	{
+    		fat10= fat * i;
+    		i++;
+		
+	}
+
+	while (i <= 15)
+	{
+    		fat15 = fat10 * i;
+    		i++;
+	}
+printf ("O fatorial de %d e %d\n",i, fat );
+system("PAUSE");
+return 0;
+}
+/*Resposta: Ocorre o erro, pois o fatorial de 1 ate 9, não foi definido no  programa, o que é necessáriopara que o calculo seja 
+feito.*/
