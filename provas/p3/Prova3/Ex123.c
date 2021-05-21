@@ -1,10 +1,12 @@
+//Ex1-a
+#define NUUl -3
 int list_erase_zeros(List *li){
-  if (li == NULL){
-        return INVALID_NULL_POINTER;
+  if (!li){
+        return -1;
   } else {
     // teste se lista vazia
     if ((li->size==0)) {
-      return OUT_OF_RANGE;
+      return -2;
     } else {
       DLNode *p;
       // teste se existe somente um elemento
@@ -49,7 +51,7 @@ int list_erase_zeros(List *li){
     }
   }
 }
-
+//Ex1-b
 int list_splice(List *dest, List *source, int pos);
 {
 if (li == NULL){
@@ -69,7 +71,7 @@ if (li == NULL){
            if (li->size == NULL)
              return ELEM_NOT_FOUND;
            else{
-                while(p!= NULL) 
+                while(p!= NULL && p1 <=li->size) 
                  p->data=p1->data1;}
                 return SUCCESS;
           } // endif(p null)
@@ -77,4 +79,20 @@ if (li == NULL){
    }// endif (li null)
    free(li->p);
    free(p);
+}
+//Ex2-b
+//mostra a pilha reversa
+int stach_print(Stack *li)
+{
+   no *new_no;
+   for(int i=li->size;i<=li->head;i--)   
+     {
+        printf ("Matricula:%d\nAluno:%s\nNota1:%f\nNota2:%f\nNota3:%f\n",
+                                                new_no->data.matricula,
+                                                new_no->data.nome,
+                                                new_no->data.n1,
+                                                new_no->data.n2,
+                                                new_no->data.n3);
+     }
+
 }
