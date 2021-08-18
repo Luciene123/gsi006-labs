@@ -1,9 +1,27 @@
+//Bibliotecas 
 #include <stdio.h>
-//lembre-se de incluir as bibliotecas adequadas
-
+#include <stdlib.h>
 int main() {
-    printf("<< Guarda inteiros >>\n");
-    // Insira o seu código aqui.
+    printf("<< Guarda inteiros >>\n");    
+    int *n;
+    int i;
+ 
+  // usando o comando malloc para alocar a memória
+  n = (int *)malloc(5*sizeof(int));
+
+  for   (i = 0; i < 5; i++){
+    printf("Digite os números inteiros %d R$: ",i+1);
+    scanf("%d", &n[i]);
+  } 
+
+  printf("\nNumero digitados\n" );
+  for   (i = 0; i < n; i++)
+  {
+    printf("Numero(%d) eh %d\n" ,i+1,n[i]);
+  }
+  
+  // Liberarando a memória
+  free(n);
 }
 
 /*

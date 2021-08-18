@@ -1,8 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include<math.h>
+int verQuadPerf(int n)
+{   
+        //Um número será quadrado perfeito quando respeitar a regra de formação: n^2= a. 
+        //Nessa regra, n é qualquer número inteiro positivo e a é o número quadrado perfeito.
+        int y;
+        y = sqrt(n);        
+        if(pow(y,2) == n)
+          return 0; 
+        else
+          return 1 ; 
+} 
 
 int main(){
+    int n;
     printf("Digite o valor de n: ");
-
+    scanf("%d",&n);
+    if (verQuadPerf(n)==0)
+     {
+        printf("Eh quadrado perfeito");
+    }
+    else{
+        printf("Nao eh quadrado perfeito");
+    }
     return 0;
 }
 

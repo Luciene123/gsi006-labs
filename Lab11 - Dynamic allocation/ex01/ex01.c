@@ -28,8 +28,7 @@ int main(void){
  double *produtos;
  int n,i;
 
- printf("Informe o número de produtos: ");
-  scanf("%d",&n);
+ 
   // é necessário usar o comando malloc para alocar a memória
   produtos = (double *)malloc(n*sizeof(double));
 
@@ -52,9 +51,9 @@ int main(void){
 
 Suas considerações:
 
-Quais foram os valores de n testados?
-O que significa o valor de n?
+Quais foram os valores de n testados? 3,12,20
+O que significa o valor de n? Quantidade de produtos à serem cadastrados
 o que significa o valor de de sizeof(double) no 
-commando malloc(n*sizeof(double)).
+commando malloc(n*sizeof(double)). R: O tipo de dados que vai ser alocado neste caso double=8bytes(32bits)
 
 */

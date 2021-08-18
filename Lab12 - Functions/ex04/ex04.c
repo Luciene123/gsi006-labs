@@ -1,9 +1,20 @@
 #include <stdio.h>
-
+int calculaPotencia(int x,int n)
+{
+    int i, x,n;
+    for(i=1;i<n;i++)
+    {
+        x*=x;
+    }
+    
+}
 int main(){
+     int i, x,n;
     printf("Digite o valor de x: ");
+    scanf("%d", &x);
     printf("Digite o valor de n: ");
-
+    scanf("%d",&n);
+    printf("valor de x^n :%d",calculaPotencia(x,n));
     return 0;
 }
 

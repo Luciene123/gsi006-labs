@@ -1,9 +1,30 @@
 #include <stdio.h>
+#include <stdlib.h>
+int calculaFatorial(int n)
+{   int i, fat=1;
+    for(i=1;i<n-1;i++)
+    {
+        fat = fat *n;
+    }
+}
+void desenhaLinha(int n1){
+    char c ='=';
+    int i;
+    for(i=0;i<n1;i++)
+    {
+        printf("%c",c);
+    }
+}
 
 int main(){
+    int l, f;
     printf("Digite o tamanho da linha: ");
+    scanf("%d", &l);
     printf("Digite o numero que deseja calcular o fatorial: ");
-
+    scanf("%d",&f);
+    desenhaLinha(l);
+    printf("\nFatorial de %d eh %d",f, calculaFatorial(f));
+    desenhaLinha(l);
     return 0;
 }
 

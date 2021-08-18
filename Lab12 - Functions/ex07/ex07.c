@@ -1,9 +1,21 @@
 #include <stdio.h>
+void trocaConteudo(int a,int b)
+{
+    float aux;
+    aux=a;
+    a=b;
+    b=aux;
+}
 
 int main(){
+    int A,B;
     printf("Digite o número A: ");
+    scanf("%f",&A);
     printf("Digite o número B: ");
-
+    scanf("%f",&B);
+    trocaConteudo(A,B);
+    printf("O número a:%f",A);
+    printf("O número B:%f",B);
     return 0;
 }
 

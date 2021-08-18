@@ -1,9 +1,66 @@
 #include <stdio.h>
+#include <stdlib.h>
 //lembre-se de incluir as bibliotecas adequadas
-
+typedef struct{
+    int x;
+    int y;
+} Ponto;
 int main(){
     printf("<< Vetor de pontos alocados dinamicamente >>");
-
+    int n,i,j;        
+    Ponto *p,*mesq,*madir,*macima,*mabaixo;
+    printf("Quantos pontos deseja digitar: ");
+    scanf("%d",&n);
+    p = (Ponto*)malloc(n*sizeof(Ponto));
+    mesq= (Ponto*)malloc(n*sizeof(Ponto));
+    madir= (Ponto*)malloc(n*sizeof(Ponto));
+    macima= (Ponto*)malloc(n*sizeof(Ponto));
+    mabaixo= (Ponto*)malloc(n*sizeof(Ponto));
+    for(i=0;i<n;i++)
+    {   for(j=0;j<n;j++)
+        {   printf("Entre com a coordenada x do ponto %d:",i+1);
+            scanf("%d",&p[i].x);                   
+            printf("Entre com a coordenada x do ponto %d:",i+1);
+            scanf("%d",&p[j].y);        
+        }
+    }
+    for(i=0;i<n;i++)
+    {     for(j=0;j<n;j++)
+          {  
+              printf("Pontos digitados:(%d,%d),\t",p[i].x,p[j].y); 
+          }
+    }
+    for(i=0;i<n;i++)
+    {     for(j=0;j<n;j++)
+          {   if((p[i].x && p[j].y) > (p[i+1].x && p[j+1].y))
+              {  macima->x, macima->y;
+                printf("Pontos mais acima :(%d,%d),\t",macima[i].x,macima[j].y); 
+              }
+          
+          
+            else if((p[i].x && p[j].y) < (p[i+1].x && p[j+1].y))
+              {  mabaixo->x, mabaixo->y;
+                printf("Pontos mais abaixo:(%d,%d),\t",mabaixo[i].x,mabaixo[j].y); 
+              }
+          
+          
+          else   if((p[j].y) < (p[j+1].y))
+              {  mesq->x, mesq->y;
+                printf("Pontos mais esquerda :(%d,%d),\t",mesq[i].x,mesq[j].y); 
+              }
+          
+          
+             if((p[j].y) > (p[j+1].y))
+              {  madir->x, madir->y;
+                printf("Pontos :(%d,%d),\t",madir[i].x,madir[j].y); 
+              }
+          }
+    
+    free(p);
+    free(mesq);
+    free(madir); 
+    free(macima);
+    free(mabaixo);
     return 0;
 }
 

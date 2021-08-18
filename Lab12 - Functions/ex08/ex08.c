@@ -1,9 +1,22 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include<math.h>
+float alteraConteudo(float x, float i)
+{
+    if(x<0)    
+     x= x-(x*i/100);
+    else 
+        x= x+(x*i/100);
+    return x;
+}
 int main(){
+    int y,x;
     printf("Digite o valor de y: ");
+    scanf("%f",&y);
     printf("Digite o percentual de alteração x: ");
-
+    scanf("%f",&x);
+    alteraConteudo(y,x);
+    printf("O valor alterado eh:%f",alteraConteudo(y,x));
     return 0;
 }
 

@@ -1,7 +1,22 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+void desenhaLinha(int n){
+    char c ='=';
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("%c",c);
+    }
+}
 int main(){
-    printf("<<  >>\n");
+    int n,i;
+    printf("Digite o tamanho da linha a ser impressa: ");
+    scanf("%d",&n);
+    
+    
+       desenhaLinha(n); 
+    
+    
 
     return 0;
 }

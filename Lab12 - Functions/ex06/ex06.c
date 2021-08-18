@@ -1,8 +1,33 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include<math.h>
+double numNeperiano(int termo)
+{
+    int n=1,ex,term,cont=1;  // termos da série de taylor
+ 	double y, aux = 1;//auxiliar 	
+	
+ 	do {
+      		y = (1 + (1 / n));
+     	 	while (ex <= cont)
+        	{
+       		 aux = y * aux;
+        		ex++;
+      		}
 
+      		ex = 1;
+     	 	printf(" %.100lf \n ", aux);
+      		cont++;
+      		aux = 1;
+     		n++;
+
+    	} while (cont<= term);
+        return y;
+}
 int main(){
+    int term;
     printf("Digite o valor de n para aproximar o numero neperiano: ");
-
+    scanf("%d",&term);
+    printf("O valor do numero neperiano eh:%lf",numNeperiano(term));
     return 0;
 }
 
