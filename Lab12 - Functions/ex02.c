@@ -1,8 +1,18 @@
 #include <stdio.h>
-
+void desenhaLinha(int n)
+{
+    char c='=';
+    int i;
+    for(i=0;i<n.i++)
+    {
+        printf("%c",c);
+    }
+}
 int main(){
-    printf("<<  >>\n");
-
+    int i, n;
+    printf("informe o tamanho da linha");
+        scanf("%d",&n);
+    desenhaLinha(n);    
     return 0;
 }
 

@@ -5,6 +5,7 @@ typedef struct{
     int x;
     int y;
 } Ponto;
+ 
 int main(){
     printf("<< Vetor de pontos alocados dinamicamente >>");
     int n,i,j;        
@@ -50,9 +51,9 @@ int main(){
               }
           
           
-             if((p[j].y) > (p[j+1].y))
+             else((p[j].y) > (p[j+1].y))
               {  madir->x, madir->y;
-                printf("Pontos :(%d,%d),\t",madir[i].x,madir[j].y); 
+                printf("Pontos mais a direita:(%d,%d),\t",madir[i].x,madir[j].y); 
               }
           }
     

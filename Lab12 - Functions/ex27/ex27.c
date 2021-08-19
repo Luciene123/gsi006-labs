@@ -1,7 +1,27 @@
 #include <stdio.h>
-
+typedef struct{
+    int x;
+    int y;
+}Ponto;
+void inicializa( int n)
+{
+    Ponto *p;
+    int i;
+    p=(int*)calloc(p,n*sizeof(int*));
+    if(!p)
+        exit(1);
+    for(i=0;i<n;i++){
+        p[i].x=0;
+        p[i].y=0;
+        printf("(%d,%d)",p->x,p->y);
+        free(p);
+    }
+}
 int main(){
+    int n;
     printf("Digite quantos pontos(x,y) você deseja: ");
+    scanf("%d",&n);
+    inicializa(n);
 
     return 0;
 }

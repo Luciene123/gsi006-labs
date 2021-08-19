@@ -12,9 +12,8 @@ float soma_ponto(struct Ponto p,struct Ponto p1)
     p3.x=p.x + p1.x;
     p3.y=p.y + p1.y;    
 }
-float imprimePonto(struct Ponto p,struct Ponto p1)
-{
-    soma_ponto(p,p1);   
+float imprimePonto(struct Ponto p,struct Ponto p1){
+      
     printf("Soma de (%f,%f) e (%f,%f) eh (%f,%F)",p.x,p.y,p1.x,soma_ponto(p,p1));
 }
 
@@ -29,6 +28,7 @@ int main(){
     scanf("%f",&p1.x);
     printf("Digite o valor de y2: ");
     scanf("%f",&p1.y);
+    soma_ponto(p,p1); 
     imprimePonto(p1,p1);
     return 0;
 }

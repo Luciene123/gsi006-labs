@@ -1,8 +1,30 @@
 #include <stdio.h>
-
+#include <stdio.h>
+#include<math.h>
+float negativos(float vet[], int n){
+    int i,cont=0;
+    for(i = 1; i < n; i++){
+        if(vet[i] < 0)
+            cont++;
+    } 
+    return cont;
+}
+void  imprime_vet_float(float vet[],int n){   
+    int i;
+    for(i = 0; i < n; i++){
+        printf("O numero float %d R$:%f ",i+1,vet[i]);
+  } 
+}
 int main(){
-    printf("<<  >>\n");
-
+    float vet[4];
+    int i;     
+    for(i = 0; i < 4; i++){
+        printf("Digite o números float %d: ",i+1);
+        scanf("%d", &vet[i]);
+    }     
+    printf("Os valores inseridos neste vetor de inteiros eh: ");
+    imprime_vet_float(vet,n);
+    printf("O vetor tem %d numero(s)", negativos(vet,n));
     return 0;
 }
 

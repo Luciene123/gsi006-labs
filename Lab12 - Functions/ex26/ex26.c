@@ -1,8 +1,28 @@
 #include <stdio.h>
-
+void  imprime_vet_double(double *vetor,int n){   
+    int i;
+    for(i = 0; i < n; i++){
+        printf("O números inteiros %d R$:%lf ",i+1,vetor[i]);
+    }
+}
+void to_double(int *vet, int n ){
+int i;
+double *vetD;
+for(i = 0; i < n; i++){ 
+   vetD[i]=vet[i];   }
+}
 int main(){
+    double *vet;
+    int n;
     printf("Digite o tamanho do vetor: ");
-
+    scanf("%d",&n);
+    vet=(double*)calloc(vet,sizeof(double*));
+    for(i = 1; i < n; i++){ 
+        printf("Digite o valor %d do vetor: ", i+1);        
+        scanf("%lf",vet[i]);  
+    }
+    imprime_vet_double(vet,n);
+    free(vet);
     return 0;
 }
 

@@ -1,8 +1,100 @@
 #include <stdio.h>
-
+#include <stdio.h>
+#include<math.h>
+void maiorMenor(float *vet, int n, float *menor, float *maior){
+    int i;
+    *menor = *vet;//Posição vet[0] de vet
+    *menor = *vet;//Posição vet[0] de vet
+    *maior = *vet;
+    for(i = 1; i < n; i++){
+        if(*menor > *(vet + i))
+            *menor = *(vet + i);
+        else if(*maior < *(vet + i))
+            *maior = *(vet + i);
+    print("Maior valor do vetor%d",*menor);      
+    print("Maior valor do vetor%d",*maior);
+           
+    }
+}
+float negativos(float *vet, int n){
+    int i,cont=0;
+    for(i = 1; i < n; i++){
+        if(vet[i] < 0)
+            cont++;
+    } 
+    return cont;
+}
+void abs_vet(float *vet){
+    int i,n;
+    for(i = 1; i < n; i++){
+        vet[i]=  abs(vet[i]);       
+    }
+}
+void copiarvet(float *vet,float *vet_destino,int n){
+    int i;
+    for(i = 1; i < n; i++){
+       vet_destino[i]= vet[i];
+        
+    }     
+}
+void multvet(float vet[],int n,float escalar){
+    int i;
+    for(i = 1; i < n; i++){
+        vet[i]= vet[i]*escalar;        
+    }
+}
+void  imprime_vet_float(float *vetor,int n){   
+    int i;
+    for(i = 0; i < n; i++){
+        printf("O números inteiros %d R$:%d ",i+1,vetor[i]);
+    }
+}
 int main(){
-    printf("<<  >>\n");
-
+    float *menor, *maior, *vet, *vet_destino;
+    int n,i;
+    float esc;
+    maior=(float*)malloc(sizeof(float*));
+    if(!maior)
+        exit(1);
+    menor=(float*)malloc(sizeof(float*));
+    if(!menor)    
+        exit(1);
+    vet=(float*)malloc(sizeof(float*));
+    if(!vet)
+        exit(1);
+    vet_destino=(float*)malloc(sizeof(float*));
+    if(!vet_destino)
+        exit(1);        
+    maiorMenor(vet,n,menor,maior);
+    printf("Digite o tamanho do vetor: "); 
+    scanf("%f",&n); 
+    printf("Digite o valor do escalar: ");
+    scanf("%f",&esc);
+    for(i = 1; i < n; i++){ 
+        printf("Digite o valor %d do vetor: ", i+1);        
+        scanf("%f",vet[i]);
+    } 
+    maiorMenor(vet,n,menor,maior);
+    printf("O vetor tem %d numero(s)", negativos(vet,n));   
+    printf("O vetor inicial eh: ");
+    imprime_vet_float(vet,n);
+    printf("O vetor final eh: ");
+    multvet(vet,n,esc);
+    imprime_vet_float(vet,n);
+    abs_vet(vet);
+    imprime_vet_int(vet,n);
+    for(i = 1; i < n; i++){ 
+        printf("Digite o valor %d do vetor: ", i+1);        
+        scanf("%f",vet_destino[i]);
+    } 
+    imprime_vet_int(vet_destino,n);
+    printf("O vetor de destino apos a copia eh: ");
+    copiarvet(vet,vet_destino,5);
+    imprime_vet_int(vet_destino,5);
+    free(maior);
+    free(menor);
+    free(vet);
+    free(vet_destino);
     return 0;
 }
 

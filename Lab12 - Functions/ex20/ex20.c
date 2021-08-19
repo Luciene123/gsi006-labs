@@ -1,9 +1,29 @@
 #include <stdio.h>
-
+#include <stdio.h>
+#include<math.h>
+void copiarvet(int vet_origem[],int vet_destino[],int n){
+    int i;
+    for(i = 1; i < n; i++){
+       vet_destino[i]= vet_origem[i];
+        
+    }     
+}
+void  imprime_vet_int(int vetor[],int n){   
+    int i;
+    for(i = 0; i < n; i++){
+        printf("O números inteiros %d R$:%d ",i+1,vetor[i]);
+    }
+}
 int main(){
+    int vet_origem[]={1,2,3,4,5};
+    int vet_destino[]={1,2,3,4,6};    
     printf("O vetor de origem eh: ");
+    imprime_vet_int(vet_origem,5);
     printf("O vetor de destino eh: ");
+    imprime_vet_int(vet_destino,5);
     printf("O vetor de destino apos a copia eh: ");
+    copiarvet(vet_origem,vet_destino,5);
+    imprime_vet_int(vet_destino,5);
 
     return 0;
 }

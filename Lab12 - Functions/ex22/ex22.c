@@ -1,11 +1,36 @@
 #include <stdio.h>
-
-int main(){
-    printf("<<  >>\n");
-
-    return 0;
+#include <stdio.h>
+#include<math.h>
+void abs_vet(int vet[]){
+    int i,n;
+    for(i = 1; i < n; i++){
+        vet[i]=  abs(vet[i]);       
+    }
+}
+void  imprime_vet_int(int vetor[],int n){   
+    int i;
+    for(i = 0; i < n; i++){
+        printf("O numero float %d R$: ",i+1,vetor[i]);
+  } 
 }
 
+int main(){
+    int n,i;
+    int vet[n];     
+    printf("Digite o tamanho do vetor: "); 
+    scanf("%f",&n);    
+    for(i = 1; i < n; i++){ 
+        printf("Digite o valor %d do vetor: ", i+1);        
+        scanf("%f",&vet[i]);
+    }    
+    printf("O vetor inicial eh: ");
+    imprime_vet_int(vet,n);
+    printf("O vetor final eh: ");
+    abs_vet(vet);
+    imprime_vet_int(vet,n);
+    free(vet);
+    return 0;
+}
 /*
 => Faça uma função para transformar os números de um vetor 
 de inteiros em seu valor absoluto (use a função abs (math.h)).

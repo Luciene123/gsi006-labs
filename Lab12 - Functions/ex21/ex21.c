@@ -1,8 +1,35 @@
 #include <stdio.h>
+#include <stdio.h>
+#include<math.h>
+void multvet(float vet[],int n,int escalar){
+    int i;
+    for(i = 1; i < n; i++){
+        vet[i]= vet[i]*escalar;
+        
+}
+void  imprime_vet_float(float vetor[],int n){   
+    int i;
+    for(i = 0; i < n; i++){
+        printf("O numero float %d R$: ",i+1,vetor[i]);
+  } 
+}
 
 int main(){
-    printf("Digite o tamanho do vetor: ");
-    printf("Digite o valor do escalar: ");
+    float vet[];
+    int n,esc; 
+    printf("Digite o tamanho do vetor: "); 
+    scanf("%f",&n); 
+    printf("Digite o valor do escalar: ")
+    scanf("%f",&esc);
+    for(i = 1; i < n; i++){ 
+        printf("Digite o valor %d do vetor: ", i+1);        
+        scanf("%f",&vet[i]);
+    }    
+    printf("O vetor inicial eh: ");
+    imprime_vet_int(vet,n);
+    printf("O vetor final eh: ");
+    multvet(vet,n,esc);
+    imprime_vet_float(vet,n);
 
     return 0;
 }
