@@ -1,32 +1,47 @@
-#include <stdio.h>
 
+
+
+#include <stdio.h>
+#include <stdlib.h>
+void desenhaLinha(int n){
+    char c ='=';
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("%c",c);
+    }
+}
 int main(){
-    printf("<<  >>\n");
+    int ni,n,i;
+    printf("Digite a quantidade de linhas a serem impressas: ");
+    scanf("%d",&ni);
+    for(i=0;i<ni;i++)
+    {
+       desenhaLinha(n); 
+    }
+    
 
     return 0;
 }
 
 /*
-1) Crie uma estrutura chamada telefone, que armazena o DDD e o telefone (ilustração abaixo).  
-Cadastre 3 telefones e mostre na tela os telefones cadastrados. 
+=> Faça um procedimento chamado DesenhaLinha. Ele deve desenhar 
+uma linha na tela usando vários caracteres "=" (Ex: ========). 
+No programa principal execute várias chamadas a esse procedimento (use um loop).
 
-Telefone**
-+------------+------------+
-| DDD        | Telefone   |  
-+------------+------------+
+Ex: DesenhaLinha(3) tem como saída:
+    ========
+    ========
+    ======== 
+
+No programa principal, solicite ao usuário quantas vezes a linha deverá ser desenhada.
 
 -------------------------------------------------------------------------------
-Exemplo de saída:
-Digite o DDD: 34
-Digite o telefone: 991501111
-Digite o DDD: 31
-Digite o telefone: 991502222
-Digite o DDD: 64
-Digite o telefone: 991503333
+Exemplo de Saída:
 
-Telefones cadastrados: 
-34 991501111
-31 991502222
-64 991503333
+Digite a quantidade de linhas a serem impressas: 3
+========
+========
+========
 -------------------------------------------------------------------------------
 */
