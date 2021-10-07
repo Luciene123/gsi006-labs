@@ -1,199 +1,104 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "TadMatriz.h"
-int main()
+struct matriz
 {
-    float a,b,c,d,f,fa, escalae, traco;
-    int i,j,op,escolha, linha, coluna;
-    TadMatriz *M,*M1,*M2;
-    float v1[12],v2[12],v3[i];
-    do{
-        printf("Escolha uma opção");    
-        printf("Criar matriz:----------------------------------(1)");
-        printf("Inserir elemeto:-------------------------------(2)");
-        print("Acessar elemento:-------------------------------(3)");        
-        printf("Somar uma Linha:-------------------------------(4)");
-        printf("Somar uma coluna:------------------------------(5)");
-        print("Somar duas matrizes:----------------------------(6)");
-        print("Multiplicar duas matrizes:----------------------(7)");
-        print("Multiplicar matrizes por um numero(escalar):----(8)");
-        printf("Soma da diagonal principal(Calculo do traço):--(9)");
-        printf("Para sair so programa:--------------------------(0)");
-        scanf("%d", &op);
-    }while(op==1||op==2||op==3||op==4||op==5||op==6||op==7||op==8||op==9||op!=0);
-        switch(op)
-        {
-            case 1: 
-            {   printf("---------------------------Criando Matrizes---------------------------");
-                    // criação de 3 matrizes com 12 linhas e 12 colunas
-                    *M =cria(12,12);
-                    *M1=cria(12,12);
-                    *M2=cria(12,12);
-                    if (!M||M1||M2) 
-                    {
-                        printf("Memória insuficiente!\n");
-                        return -1;
-                        
-                     } 
-            )break;
+    int  nrows;// número de linhas
+    int ncolumns; // número de colunas
+    double *data; // ponteiro para os dados da matriz
+};
 
-            case 2:
-            {   printf("---------------------------Insere um elemento na Matriz---------------------------");
-                    // inserção de valores na matriz
-                    printf(" Digite  o valor a ser inserido na Matriz");
-                    scanf("%f",&f); 
-                    if(insereElemento(*M,i,j,f))                      
-                        printf("Elemento inserido com sucesso");
-                    else
-                        printf("Erro: o Elemento não foi inserido ");
+TMat2D *mat2D_create(int nrows, int ncolumns){
+    TMat2D *mat;
+    mat = malloc(sizeof(TMat2D));
+    if (mat != NULL){
+        mat->data = malloc(nrows*ncolumns*sizeof(double));
+        if (mat->data != NULL){
+            mat->ncolumns = ncolumns;
+            mat->nrows = nrows;
+        } else {
+            free(mat);
+            return NULL;
+        }
+    }
+    return mat;
+}
 
-            }break;
+int mat2D_free(TMat2D *mat)
+{
+    free(mat->data);
+    free(mat);
+}
+int mat2D_set_value(TMat2D *mat, int i, int j, double val);
+{
+    int k; /* índice do elemento no vetor */
+    if(i < 0 ||i >= mat->nrows || j < 0 ||j >= mat->col)
+    {
+        printf("Acesso inválido!\n");
+        exit(1);
+    }
+    k = i*mat->col + j;
+    mat->v[k] = v;
+    k = i * mat->col + j; /*armazenamento por linha*/
+    return mat->data[k];
+}
 
-            case 3: 
-            {       printf("------------------------Acessa um elemento da Matriz---------------------------"); 
-                    // Acessa elemento da matriz
-                    printf("Digite o valor a ser buscado");
-                    scanf("%f", &fa); 
-                    if(acessaElemento(*M,i,j,fa))
-                        printf("O elemento foi encontrado" );
-                    else
-                        printf("Erro:O elemento não foi encontrado" );
-            } break;  
+void atribui_set_value (Matriz* mat, int i, int j)
+{
+    int k; /* índice do elemento no vetor */
+    if(i<0 || i>=mat->nrows || j<0 || j>=mat->ncolumns)
+    {
+        printf("Atribuição inválida!\n");
+        exit(1);
+    }
 
-            case 4:
-            {   printf("---------------------------Soma de uma linha da uma matriz----------------------------");
-                // Inserção de valores na matriz1
-                for(i=0; i < 12; i++)
-                {
-                    for(j=0; i < 12; j++)
-                    {
-                        //printf(" Digite os valores a serem inseridos na matriz1 
-                        if(insereElemento(*M,i,j,f))
-                            printf("Elemento inserido com sucesso"); 
-                        else
-                            printf("Erro: o Elemento não foi inserido ");                                 
-                    }
-                    printf("O valor das soma das linhas da matriz eh:%f",somalinhas(*M,linha)); 
-            }break; 
+    /* initialize random seed: */
+    srand (time(NULL));
+    i*mat->ncolumns + j=(rand()/(double)RAND_MAX)*100;
+    k = i*mat->ncolumns + j;
+    mat->dados[k] = dados;
+    }
+int mat2D_get_value(TMat2D *mat, int i, int j, double *val)
+}
+ int k; /* índice do elemento no vetor */
+    if(i < 0 ||i >= mat->nrows || j < 0 ||j >= mat->col)
+    {
+        printf("Acesso inválido!\n");
+        exit(1);
+    }
+    i * mat->col + j= *k;
+    return mat->data[k];
+}
 
-            case 5:
-            {   printf("---------------------------------Soma de uma coluna de uma da matriz--------------------------");       
-                // Inserção de valores na matriz1
-                for(i=0; i < 12; i++)
-                {
-                    for(j=0; i < 12; j++)
-                        {
-                            //printf(" Digite os valores a serem inseridos na matriz1 
-                            if(insereElemento(M,i,j,f))
-                                printf("Elemento inserido com sucesso"); 
-                            else
-                                 printf("Erro: o Elemento não foi inserido ");
-                        }
-                    }
-                printf("O valor das soma das coluna da matriz eh:%f",somacolunas(*M,coluna)); 
-            }break;
-                
-            case 6:
-            {   printf("-------------------------- Soma de duas matrizes----------------------------------- ");
-                // Inserção de valores na matriz1
-                for(i=0; i < 12; i++)
-                {
-                    for(j=0; i < 12; j++)
-                    {
-                        //printf(" Digite os valores a serem inseridos na matriz1 
-                        if(insereElemento(*M1,i,j,f)
-                            printf("Elemento inserido com sucesso");
-                        else
-                            printf("Erro: o Elemento não foi inserido ");                         
-                    }                  
-                // Inserção de valores na matriz2
-                for(i=0; i < 12; i++)
-                {
-                    for(J=0; i < 12; j++)
-                    {                   
-                        //printf(" Digite os valores a serem inseridos na matriz2 
-                        if(insereElemento(*M2,i,j,fa))
-                            printf("Elemento inserido com sucesso"); 
-                        else
-                            printf("Erro: o Elemento não foi inserido");                       
-                    } 
-                }                   
-                printf(" A soma das duas matrizes eh:%f",soma2matrizes(*M,*M1,*M2));                     
-            }break;
+Criar um TAD para manipular matrizes de double. Crie um programa que utiliza todas as funções
+do TAD. A alocação interna da matriz deverá ser feita na forma de um vetor (array)
+unidimensional. Por exemplo, para armazenar uma matriz de tamanho 3x4, deve-se usar um array
+de tamanho 12.
+Operações:
+• Criar/destruir o TAD
+• Escrever elemento i,j
+• Acessar elemento i,j
+• Preencher com números aleatórios entre um valor mínimo e máximo
+• Somar duas matrizes
+• Multiplicar duas matrizes
+• Multiplicar uma matriz por um valor escalar
+• Calcular o Traço da matriz
+• Retornar um vetor com a soma das linhas
+• Retornar um vetor com a soma das colunas
+• Retornar o número de linhas da matriz
+• Retornar o número de colunas da matriz
+Observações:
+• Em caso de sucesso, a operação deverá retornar 0 para indicar o sucesso. -1 em caso de
+erro ou algum outro código que você definir.
+• Não colocar comandos de entrada/saída na TAD. Toda mensagem (de sucesso ou erro)
+deverá ser apresentada no programa principal. Exceção: É permitido ter a função para
+imprimir toda a matriz dentro do TA
 
-            case 7 :
-            {   printf("--------------------------------Produto de duas matrizes-------------------------------------");
-                // Inserção de valores na matriz1
-                for(i=0; i < 12; i++)
-                {
-                    for(j=0; i < 12; j++)
-                    {
-                        //printf(" Digite os valores a serem inseridos na matriz1 
-                        if(insereElemento(*M,i,j,f))
-                            printf("Elemento inserido com sucesso"); 
-                        else
-                            printf("Erro: o Elemento não foi inserido ");                        
-                    }
-                }          
-                // Inserção de valores na matriz2
-                for(i=0; i < 12; i++)
-                {
-                    for(J=0; i < 12; j++)
-                    {                   
-                        //printf(" Digite os valores a serem inseridos na matriz2 
-                        if(insereElemento(M2,i,j,fa))
-                            printf("Elemento inserido com sucesso"); 
-                        else
-                            printf("Erro: o Elemento não foi inserido ");                        
-                    }
-                }
-                printf(" O produto das matrizes eh:%f",mult2matrizes(*M,*M1,*M2));
-            }break;                
-                
-            case 8:
-            {   printf("--------------------------Produto de um escalar por uma  matriz-------------------------------------");
-                    
-                    / Inserção de valores na matriz1
-                    for(i=0; i < 12; i++)
-                    {
-                        for(j=0; i < 12; j++)
-                        {
-                            //printf(" Digite os valores a serem inseridos na matriz1 
-                            if(insereElemento(*M,i,j,f))
-                                printf("Elemento inserido com sucesso"); 
-                            else
-                                 printf("Erro: o Elemento não foi inserido ");
-                        }
-                    }
-                    printf("O valor do traço(soma dos valores diagonal) da matriz eh:%f",mult_matriz_escalar(*M,*M1,escalar));
-            }break;
-
-           case 9:
-            {   printf("--------------------------Traço de uma  matriz(soma da diagonal)-------------------------------------");
-                    
-                    / Inserção de valores na matriz1
-                    for(i=0; i < 12; i++)
-                    {
-                        for(j=0; i < 12; j++)
-                        {
-                            //printf("Digite os valores a serem inseridos na matriz");
-                            if(insereElemento(*M,i,j,f))
-                                printf("Elemento inserido com sucesso"); 
-                            else
-                                 printf("Erro: o Elemento não foi inserido ");
-                        }
-                    }
-                    printf("O valor do traço(soma dos valores diagonal) da matriz eh:%f",Tracomatrizes(*M,traco));         
-            }break;
-
-             default:{printf ("Valor invalido!\n");}    
-        }    
- 
-libera(M);
-libera(M1);
-libera(M1);
-if(M||M1||M2)
-    return -1;
-system("pause");
-return 0;        
+int linhas(TMat2D* mat)
+{
+    retur mat->lin;
+}
+int colunas(TMat2D *mat)
+{
+    return mat->col;
 }

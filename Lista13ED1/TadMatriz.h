@@ -4,7 +4,7 @@ typedef struct TadMatriz TMat2D;
 /* Função cria - Aloca e retorna matriz m por n */
 TMat2D *cria (double m,double n);
 /* Função libera - Libera a memória de uma matriz */
-int libera (TMat2D *mat);
+void libera (TMat2D *mat);
 /* Função acessa - Retorna o valor do elemento [i][j] */
 acessaElemento (TMat2D *mat, int i, int j, double v);
 /* Função atribui - Atribui valor ao elemento [i][j] */
